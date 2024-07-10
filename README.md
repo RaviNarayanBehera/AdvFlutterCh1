@@ -32,7 +32,15 @@ Ex :- Light Theme & Dark Theme.
 
 
 
+
+
 # Stepper
 <h1 align = "center">
   <img src="https://github.com/RaviNarayanBehera/AdvFlutterCh1/assets/148530184/d8aa6344-f079-44aa-8894-6d026648b505" height=65%  width=22%>
 </h1>
+
+
+
+
+# What is State Management?
+### State management in Dart and Flutter is all about managing the data that the app will render and how it will respond to user input. It's about tracking changes to the state and updating the UI to reflect these changes. This flexibility allows developers to control the object creation process more precisely.
