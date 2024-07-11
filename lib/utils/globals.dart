@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+bool isDark = false;
+
 bool isGrid = false;
 int index = 0;
 var txtAccount = TextEditingController();
