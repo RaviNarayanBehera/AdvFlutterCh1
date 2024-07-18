@@ -1,13 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:theme/component/Pages/1.7%20biometric_authentication/view/galary_page.dart';
+import 'package:theme/component/Pages/8.1%20json_parsing/provider/photo_provider.dart';
+import 'package:theme/component/Pages/8.1%20json_parsing/view/photo_page.dart';
 
 import 'component/Pages/1.7 biometric_authentication/provider/gallary_provider.dart';
-import 'component/Pages/1.7 biometric_authentication/view/hide_page.dart';
 
-void main()
-{
+void main() {
   runApp(MyApp());
 }
 
@@ -21,17 +20,17 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => HideProvider(),
-      builder: (context, child) => MaterialApp(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => PhotoProvider(),)
+      ],
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: GallaryPage(),
+        home: PhotoPage(),
       ),
     );
   }
 }
-
-
 
 // import 'package:flutter/material.dart';
 // import 'package:provider/provider.dart';
@@ -75,4 +74,3 @@ class _MyAppState extends State<MyApp> {
 // // themeMode: Provider.of<ChangeThemeProvider>(context).isLight
 // //     ? ThemeMode.dark
 // //     : ThemeMode.light,
-
