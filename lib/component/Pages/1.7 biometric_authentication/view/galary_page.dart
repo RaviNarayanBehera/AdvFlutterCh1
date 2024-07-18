@@ -1,64 +1,60 @@
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:theme/component/Pages/1.7%20biometric_authentication/provider/gallary_provider.dart';
 
-void main()
-{
-  runApp(MyApp());
-}
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class GallaryPage extends StatefulWidget {
+  const GallaryPage({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<GallaryPage> createState() => _GallaryPageState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _GallaryPageState extends State<GallaryPage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text('Gallery',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
-        ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(5),
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    const Icon(Icons.search),
-                    PopupMenuButton(initialValue: popUpMenuItems,
-                      itemBuilder: (context) => popUpMenuItems,
+    HideProvider hideProvider = Provider.of<HideProvider>(context, listen: false);
 
-                      onSelected: (value) {
-                        if (value == 1) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Gallery',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Icon(Icons.search),
+                  PopupMenuButton(initialValue: popUpMenuItems,
+                    itemBuilder: (context) => popUpMenuItems,
 
-                        }
-                      },)
-                  ],
-                ),
-                buildRow(name1: 'Camera',img1: 'assets/images/profile.jpeg',num1: '1151',name2: 'Family',img2: 'assets/images/profile.jpeg',num2: '451',name3: 'Facebook',img3: 'assets/images/profile.jpeg',num3: '154'),
-                buildRow(name1: 'WhatsApp',img1: 'assets/images/profile.jpeg',num1: '545',name2: 'Screenshot',img2: 'assets/images/profile.jpeg',num2: '848',name3: 'Instagram',img3: 'assets/images/profile.jpeg',num3: '111'),
-                buildRow(name1: 'Collage',img1: 'assets/images/profile.jpeg',num1: '1015',name2: 'Flowers',img2: 'assets/images/profile.jpeg',num2: '547',name3: 'Animals',img3: 'assets/images/profile.jpeg',num3: '015'),
-                buildRow(name1: 'Collage',img1: 'assets/images/profile.jpeg',num1: '1015',name2: 'Flowers',img2: 'assets/images/profile.jpeg',num2: '547',name3: 'Animals',img3: 'assets/images/profile.jpeg',num3: '015'),
-                buildRow(name1: 'Collage',img1: 'assets/images/profile.jpeg',num1: '1015',name2: 'Flowers',img2: 'assets/images/profile.jpeg',num2: '547',name3: 'Animals',img3: 'assets/images/profile.jpeg',num3: '015'),
-                // buildRow(name: 'Ravi'),
-                // buildRow(name: 'Ravi'),
-                // buildRow(name: 'Ravi'),
-              ],
-            ),
+                    onSelected: (value) {
+                      if (value == 1) {
+                        // openHideFolderProvider.Navset(context);
+                      hideProvider.passcode(context);
+                      }
+                    },)
+                ],
+              ),
+              buildRow(name1: 'Camera',img1: 'assets/images/profile.jpeg',num1: '1151',name2: 'Family',img2: 'assets/images/profile.jpeg',num2: '451',name3: 'Facebook',img3: 'assets/images/profile.jpeg',num3: '154'),
+              buildRow(name1: 'WhatsApp',img1: 'assets/images/profile.jpeg',num1: '545',name2: 'Screenshot',img2: 'assets/images/profile.jpeg',num2: '848',name3: 'Instagram',img3: 'assets/images/profile.jpeg',num3: '111'),
+              buildRow(name1: 'Collage',img1: 'assets/images/profile.jpeg',num1: '1015',name2: 'Flowers',img2: 'assets/images/profile.jpeg',num2: '547',name3: 'Animals',img3: 'assets/images/profile.jpeg',num3: '015'),
+              buildRow(name1: 'Collage',img1: 'assets/images/profile.jpeg',num1: '1015',name2: 'Flowers',img2: 'assets/images/profile.jpeg',num2: '547',name3: 'Animals',img3: 'assets/images/profile.jpeg',num3: '015'),
+              buildRow(name1: 'Collage',img1: 'assets/images/profile.jpeg',num1: '1015',name2: 'Flowers',img2: 'assets/images/profile.jpeg',num2: '547',name3: 'Animals',img3: 'assets/images/profile.jpeg',num3: '015'),
+              // buildRow(name: 'Ravi'),
+              // buildRow(name: 'Ravi'),
+              // buildRow(name: 'Ravi'),
+            ],
           ),
         ),
       ),
     );
   }
-
   Row buildRow({required String name1,required String img1,required String num1,required String name2,required String img2,required String num2,required String name3,required String img3,required String num3}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -115,6 +111,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
 
 
 List<PopupMenuEntry> popUpMenuItems = [
