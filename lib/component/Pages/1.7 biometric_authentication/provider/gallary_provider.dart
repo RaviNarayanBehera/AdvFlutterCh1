@@ -53,13 +53,13 @@ class HideProvider extends ChangeNotifier
     if (condition) {
       final bool canAuthenticate = await auth.canCheckBiometrics;
       if (canAuthenticate) {
-        final bool didAuth = await auth.authenticate(
+        final bool right = await auth.authenticate(
           localizedReason: "Please Enter Password",
           options: AuthenticationOptions(
             biometricOnly: true,
           ),
         );
-        condition = didAuth;
+        condition = right;
       }
       if(condition)
       {

@@ -14,7 +14,6 @@ class _GallaryPageState extends State<GallaryPage> {
   @override
   Widget build(BuildContext context) {
     HideProvider hideProvider = Provider.of<HideProvider>(context, listen: false);
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -35,7 +34,6 @@ class _GallaryPageState extends State<GallaryPage> {
 
                     onSelected: (value) {
                       if (value == 1) {
-                        // openHideFolderProvider.Navset(context);
                       hideProvider.passcode(context);
                       }
                     },)
