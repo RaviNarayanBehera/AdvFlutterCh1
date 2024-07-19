@@ -1,15 +1,15 @@
 import 'package:flutter/foundation.dart';
 
-class Photo
+class PhotoModal
 {
   late String title, url;
 
-  Photo({
+  PhotoModal({
     required this.title,
     required this.url,
   });
 
-  factory Photo.fromMap(Map m1) {
-    return Photo(title: m1['title'], url: m1['url'],);
+  factory PhotoModal.fromMap(Map m1) {
+    return PhotoModal(title: m1['title'], url: m1['url'],);
   }
 }

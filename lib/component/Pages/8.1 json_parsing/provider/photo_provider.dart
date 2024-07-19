@@ -7,21 +7,26 @@ import '../modal/photo_modal.dart';
 
 class PhotoProvider extends ChangeNotifier
 {
-  List<Photo> photoList = [];
+  List<PhotoModal> photoList = [];
 
   Future<List> jsonParsing()
   async {
-    String json = await rootBundle.loadString('assets/photo.json');
-    List photo = jsonDecode(json);
+    String json = await rootBundle.loadString('assets/json/photo1.json');
+    List jsonList = jsonDecode(json);
 
-    return photo;
+    return jsonList;
   }
 
-  Future<void> FromList()
+  Future<void> fromList()
   async {
-    List photo = await jsonParsing();
-    photoList = photo.map((e)=>Photo.fromMap(e),).toList();
+    List jsonList = await jsonParsing();
+    photoList = jsonList.map((e)=>PhotoModal.fromMap(e),).toList();
     notifyListeners();
+  }
+
+  PhotoProvider()
+  {
+    fromList();
   }
 
 }
